@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; rx: 10px; ry: 10px; stroke: #30363d; stroke-width: 1.5; }
+      .header-bar { fill: #161b22; }
+      .txt { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 13px; fill: #e6edf3; white-space: pre; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .dim { fill: #7d8590; }
+      .cyan { fill: #39c5cf; }
+      .bcyan { fill: #56d4dd; font-weight: 700; }
+      .green { fill: #3fb950; }
+      .bgreen { fill: #56d364; font-weight: 700; }
+      .yellow { fill: #d29922; }
+      .byellow { fill: #e3b341; font-weight: 700; }
+      .magenta { fill: #bc8cff; }
+      .bmagenta { fill: #d2a8ff; font-weight: 700; }
+      .red { fill: #ff7b72; }
+      .white { fill: #ffffff; font-weight: 700; }
+      .dark { fill: #0d1117; font-weight: 700; }
+      .diff-del { fill: #ffa198; }
+      .diff-add { fill: #56d364; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Frame -->
+  <rect class="bg" x="2" y="2" width="916" height="616" rx="10" ry="10"/>
+  <path d="M 2 12 Q 2 2 12 2 L 908 2 Q 918 2 918 12 L 918 36 L 2 36 Z" class="header-bar"/>
+  <circle cx="22" cy="19" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="19" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="19" r="6" fill="#27c93f"/>
+  <text x="460" y="24" text-anchor="middle" class="txt dim">ccview tui — Interactive Session Inspector</text>
+
+  <!-- TUI Top Bar -->
+  <rect x="14" y="46" width="118" height="22" rx="3" fill="#56d4dd"/>
+  <text x="20" y="61" class="txt dark">⚡ ccview TUI</text>
+  <text x="144" y="61" class="txt bgreen">Work/api-server (8f4b2c91)</text>
+  <rect x="366" y="46" width="142" height="22" rx="3" fill="#e3b341"/>
+  <text x="374" y="61" class="txt dark">[1:Chat Timeline]</text>
+  <text x="522" y="61" class="txt dim">2:Forensic Stats   3:UUID Tree</text>
+  <text x="765" y="61" class="txt cyan">Turn 3/6 • Line 14/68</text>
+
+  <!-- Session Metadata Banner -->
+  <rect x="14" y="76" width="892" height="92" rx="6" fill="none" stroke="#56d4dd" stroke-width="1.5"/>
+  <rect x="28" y="68" width="290" height="16" fill="#0d1117"/>
+  <text x="32" y="80" class="txt bcyan">Claude Code Session • Work/api-server</text>
+  <text x="28" y="100" class="txt"><tspan class="bcyan">Session ID:</tspan>  <tspan class="white">8f4b2c91-3e1a-4c72-9d01</tspan>      <tspan class="bcyan">Model:</tspan>          <tspan class="magenta">claude-sonnet-4-20250514</tspan></text>
+  <text x="28" y="120" class="txt"><tspan class="bcyan">Project:</tspan>     <tspan class="green">/home/samy/Work/api-server</tspan>   <tspan class="bcyan">Git Branch:</tspan>     <tspan class="yellow">fix/jwt-expiry</tspan></text>
+  <text x="28" y="140" class="txt"><tspan class="bcyan">Tokens:</tspan>      19.7k total (Cache Hit: 70.6%)  <tspan class="bcyan">Est. Cost:</tspan>      <tspan class="bgreen">$0.0326</tspan></text>
+  <text x="28" y="158" class="txt"><tspan class="bcyan">Summary:</tspan>     <tspan class="italic">Fix JWT token expiration bug in auth middleware and add unit tests</tspan></text>
+
+  <!-- Turn #1: User -->
+  <rect x="14" y="180" width="892" height="58" rx="6" fill="none" stroke="#39c5cf" stroke-width="1.2"/>
+  <rect x="28" y="172" width="102" height="16" fill="#0d1117"/>
+  <text x="32" y="184" class="txt bcyan">#1 👤 USER</text>
+  <text x="28" y="204" class="txt">Users are getting 500 Internal Server Error when their JWT token expires instead of</text>
+  <text x="28" y="222" class="txt">401 Unauthorized. Can you find and fix the bug in the auth middleware?</text>
+
+  <!-- Turn #3: Selected Assistant Turn (Highlighted Yellow Border) -->
+  <rect x="14" y="252" width="892" height="314" rx="6" fill="none" stroke="#e3b341" stroke-width="2.2"/>
+  <rect x="28" y="244" width="142" height="16" fill="#0d1117"/>
+  <text x="32" y="256" class="txt byellow">▶ #3 🤖 CLAUDE</text>
+
+  <!-- Thinking Sub-panel -->
+  <rect x="28" y="268" width="864" height="54" rx="5" fill="none" stroke="#bc8cff" stroke-width="1"/>
+  <rect x="42" y="260" width="325" height="16" fill="#0d1117"/>
+  <text x="46" y="272" class="txt bmagenta">💭 Thinking (expanded — press 't' to collapse)</text>
+  <text x="40" y="290" class="txt dim italic">`verify_token` only catches `jwt.InvalidSignatureError`, so `jwt.ExpiredSignatureError`</text>
+  <text x="40" y="308" class="txt dim italic">escapes as an unhandled 500 error! Let's update `src/middleware/auth.py`.</text>
+
+  <!-- Assistant Response Text -->
+  <text x="28" y="344" class="txt">Found the issue: <tspan class="cyan">verify_token</tspan> catches <tspan class="cyan">jwt.InvalidSignatureError</tspan> but does not catch</text>
+  <text x="28" y="362" class="txt"><tspan class="cyan">jwt.ExpiredSignatureError</tspan>. Updating <tspan class="green">src/middleware/auth.py</tspan> and checking callers:</text>
+
+  <!-- Paired Tool Card: Edit with Unified Diff -->
+  <rect x="28" y="376" width="864" height="132" rx="5" fill="#161b22" stroke="#d29922" stroke-width="1"/>
+  <rect x="42" y="368" width="490" height="16" fill="#0d1117"/>
+  <text x="46" y="380" class="txt"><tspan class="bgreen">✓</tspan> <tspan class="byellow">Edit</tspan>  /home/samy/Work/api-server/src/middleware/auth.py  <tspan class="cyan">(140ms)</tspan></text>
+  <text x="42" y="400" class="txt dim">--- a/auth.py</text>
+  <text x="42" y="418" class="txt dim">+++ b/auth.py</text>
+  <text x="42" y="436" class="txt cyan">@@ -1,2 +1,4 @@</text>
+  <text x="42" y="454" class="txt diff-del">-    except jwt.InvalidSignatureError:</text>
+  <text x="42" y="472" class="txt diff-del">-        raise HTTPException(status_code=401, detail="Invalid token signature")</text>
+  <text x="42" y="490" class="txt diff-add">+    except jwt.ExpiredSignatureError:</text>
+  <text x="42" y="502" class="txt diff-add">+        raise HTTPException(status_code=401, detail="Token has expired")</text>
+
+  <!-- Paired Tool Card: Subagent Task -->
+  <rect x="28" y="516" width="864" height="38" rx="5" fill="none" stroke="#d29922" stroke-width="1"/>
+  <rect x="42" y="508" width="430" height="16" fill="#0d1117"/>
+  <text x="46" y="520" class="txt"><tspan class="bgreen">✓</tspan> <tspan class="byellow">Task</tspan>  Search repo for raw jwt.decode calls  <tspan class="cyan">(1.4s)</tspan></text>
+  <text x="42" y="542" class="txt dim">Checked all files in src/. `src/middleware/auth.py` is the only place calling `jwt.decode`.</text>
+
+  <!-- Turn Footer Subtitle -->
+  <rect x="520" y="558" width="370" height="16" fill="#0d1117"/>
+  <text x="526" y="570" class="txt dim">20:10:06 • 4.5k tok (cache:89%) • $0.0067 [THINKING:ON]</text>
+
+  <!-- TUI Bottom Keybindings Bar -->
+  <rect x="14" y="582" width="76" height="20" rx="2" fill="#e6edf3"/>
+  <text x="19" y="596" class="txt dark">↑/↓ j/k</text>
+  <text x="95" y="596" class="txt cyan">Move/Scroll</text>
+
+  <rect x="195" y="582" width="68" height="20" rx="2" fill="#e6edf3"/>
+  <text x="200" y="596" class="txt dark">n/p Tab</text>
+  <text x="268" y="596" class="txt cyan">Jump Turn</text>
+
+  <rect x="352" y="582" width="38" height="20" rx="2" fill="#e6edf3"/>
+  <text x="358" y="596" class="txt dark">t/T</text>
+  <text x="395" y="596" class="txt cyan">Thinking</text>
+
+  <rect x="470" y="582" width="80" height="20" rx="2" fill="#e6edf3"/>
+  <text x="475" y="596" class="txt dark">Enter/f/F</text>
+  <text x="555" y="596" class="txt cyan">Full Output</text>
+
+  <rect x="650" y="582" width="50" height="20" rx="2" fill="#e6edf3"/>
+  <text x="656" y="596" class="txt dark">1/2/3</text>
+  <text x="705" y="596" class="txt cyan">Tab</text>
+
+  <rect x="745" y="582" width="38" height="20" rx="2" fill="#e6edf3"/>
+  <text x="751" y="596" class="txt dark">b/←</text>
+  <text x="788" y="596" class="txt cyan">Back</text>
+
+  <rect x="835" y="582" width="24" height="20" rx="2" fill="#e6edf3"/>
+  <text x="842" y="596" class="txt dark">q</text>
+  <text x="864" y="596" class="txt cyan">Quit</text>
+</svg>

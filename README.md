@@ -2,6 +2,26 @@
 
 A lightweight, zero-config Python CLI & Interactive TUI tool using `rich` to browse, replay, search, and analyze **Claude Code (`.jsonl`)** session logs from `~/.claude/projects/`.
 
+<p align="center">
+  <img src="docs/screenshots/tui.svg" alt="ccview Interactive TUI & Chat Replay" width="100%" />
+</p>
+
+---
+
+## Screenshots
+
+### Forensic Analytics & Per-Turn Token Flame Chart (`ccview stats`)
+<p align="center">
+  <img src="docs/screenshots/stats.svg" alt="ccview Forensic Token Flame Chart & Tool Latency" width="100%" />
+</p>
+
+### Parent-Child UUID & Subagent Tree (`ccview tree`)
+<p align="center">
+  <img src="docs/screenshots/tree.svg" alt="ccview Conversation & Subagent UUID Tree" width="100%" />
+</p>
+
+---
+
 ## 1. Interactive TUI Mode (`tui` / `-i`)
 
 Launch the full-screen interactive terminal UI:
@@ -24,7 +44,8 @@ Launch the full-screen interactive terminal UI:
   * `q`: Quit
 * **Session Inspector:**
   * `1` / `2` / `3`: Switch between **1: Chat Timeline**, **2: Forensic Stats**, and **3: UUID Tree**
-  * `↑` / `↓` or `j` / `k`: Jump between turns (highlights active turn in yellow and auto-scrolls)
+  * `↑` / `↓` or `j` / `k`: Move between turns or scroll through tall turns
+  * `n` / `p` or `Tab` / `Shift+Tab`: Jump directly to Next / Previous turn
   * `PgUp` / `PgDn` or `u` / `d`: Smooth page scrolling
   * `t` / `T`: Toggle **Thinking** block for the selected turn (`t`) or all turns (`T`)
   * `Space` / `Enter` / `f` / `F`: Toggle **Full Tool Output & Diffs** for the selected turn (`f`/`Enter`) or all turns (`F`)

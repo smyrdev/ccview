@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; rx: 10px; ry: 10px; stroke: #30363d; stroke-width: 1.5; }
+      .header-bar { fill: #161b22; }
+      .txt { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 13px; fill: #e6edf3; white-space: pre; }
+      .dim { fill: #7d8590; }
+      .cyan { fill: #39c5cf; }
+      .bcyan { fill: #56d4dd; font-weight: 700; }
+      .bgreen { fill: #56d364; font-weight: 700; }
+      .yellow { fill: #d29922; }
+      .byellow { fill: #e3b341; font-weight: 700; }
+      .bmagenta { fill: #d2a8ff; font-weight: 700; }
+      .white { fill: #ffffff; font-weight: 700; }
+      .italic { font-style: italic; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Frame -->
+  <rect class="bg" x="2" y="2" width="916" height="356" rx="10" ry="10"/>
+  <path d="M 2 12 Q 2 2 12 2 L 908 2 Q 918 2 918 12 L 918 36 L 2 36 Z" class="header-bar"/>
+  <circle cx="22" cy="19" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="19" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="19" r="6" fill="#27c93f"/>
+  <text x="460" y="24" text-anchor="middle" class="txt dim">ccview tree — Parent-Child UUID &amp; Subagent Branching Tree</text>
+
+  <text x="28" y="64" class="txt bcyan">🌳 Conversation &amp; Subagent Tree (13 JSONL events)</text>
+  <text x="28" y="86" class="txt">├── <tspan class="white">L1 📝 Summary:</tspan> <tspan class="italic">Fix JWT token expiration bug in auth middleware and add unit tests</tspan></text>
+  <text x="28" y="108" class="txt">└── <tspan class="bcyan">L2 (u-001) 👤 User:</tspan> Users are getting 500 Internal Server Error when their JWT token expires</text>
+  <text x="28" y="130" class="txt">    └── <tspan class="bgreen">L3 (u-002) 🤖 Claude:</tspan> 💭 (thinking)</text>
+  <text x="28" y="152" class="txt">        └── <tspan class="bgreen">L4 (u-003) 🤖 Claude:</tspan> I'll inspect the authentication middleware... <tspan class="yellow">[Read]</tspan></text>
+  <text x="28" y="174" class="txt">            └── <tspan class="dim">L5 (u-004) ↩ [tool_result x1]</tspan></text>
+  <text x="28" y="196" class="txt">                └── <tspan class="bgreen">L6 (u-005) 🤖 Claude:</tspan> 💭 Found the issue: `verify_token`... <tspan class="yellow">[Edit, Task]</tspan></text>
+  <text x="28" y="218" class="txt">                    ├── <tspan class="byellow">⎇ BRANCH</tspan> <tspan class="dim">L7 (u-006) ↩ [tool_result x1]</tspan></text>
+  <text x="28" y="240" class="txt">                    │   └── <tspan class="dim">L10 (u-009) ↩ [tool_result x1]</tspan></text>
+  <text x="28" y="262" class="txt">                    │       └── <tspan class="bgreen">L11 (u-010) 🤖 Claude:</tspan> 💭 Tools: Bash <tspan class="yellow">[Bash]</tspan></text>
+  <text x="28" y="284" class="txt">                    │           └── <tspan class="dim">L12 (u-011) ↩ [tool_result x1]</tspan></text>
+  <text x="28" y="306" class="txt">                    │               └── <tspan class="bgreen">L13 (u-012) 🤖 Claude:</tspan> The fix is in place and all 4 tests pass</text>
+  <text x="28" y="328" class="txt">                    └── <tspan class="byellow">⎇ BRANCH</tspan> <tspan class="bmagenta">[SUBAGENT]</tspan> <tspan class="bgreen">L8 (u-007) 🤖 Claude:</tspan> Tools: Grep <tspan class="yellow">[Grep]</tspan></text>
+  <text x="28" y="346" class="txt">                        └── <tspan class="bmagenta">[SUBAGENT]</tspan> <tspan class="dim">L9 (u-008) ↩ [tool_result x1]</tspan></text>
+</svg>

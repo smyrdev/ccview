@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; rx: 10px; ry: 10px; stroke: #30363d; stroke-width: 1.5; }
+      .header-bar { fill: #161b22; }
+      .txt { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; font-size: 13px; fill: #e6edf3; white-space: pre; }
+      .bold { font-weight: 700; }
+      .dim { fill: #7d8590; }
+      .cyan { fill: #39c5cf; }
+      .bcyan { fill: #56d4dd; font-weight: 700; }
+      .green { fill: #3fb950; }
+      .bgreen { fill: #56d364; font-weight: 700; }
+      .yellow { fill: #d29922; }
+      .byellow { fill: #e3b341; font-weight: 700; }
+      .magenta { fill: #bc8cff; }
+      .bmagenta { fill: #d2a8ff; font-weight: 700; }
+      .white { fill: #ffffff; font-weight: 700; }
+      .rule { stroke: #30363d; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Frame -->
+  <rect class="bg" x="2" y="2" width="916" height="556" rx="10" ry="10"/>
+  <path d="M 2 12 Q 2 2 12 2 L 908 2 Q 918 2 918 12 L 918 36 L 2 36 Z" class="header-bar"/>
+  <circle cx="22" cy="19" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="19" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="19" r="6" fill="#27c93f"/>
+  <text x="460" y="24" text-anchor="middle" class="txt dim">ccview stats — Forensic Token Flame Chart &amp; Tool Latency</text>
+
+  <!-- Section 1: Token & Cache Forensics -->
+  <text x="460" y="64" text-anchor="middle" class="txt bcyan">1. Token &amp; Cache Forensics</text>
+  <text x="36" y="90" class="txt bcyan">Metric                           Tokens    Share of Context    Est. Cost (USD)</text>
+  <line x1="28" y1="98" x2="892" y2="98" class="rule"/>
+  <text x="36" y="118" class="txt"><tspan class="bold">Cache Read Input (Hits)</tspan>          13,450               68.2%            <tspan class="green">$0.0040</tspan></text>
+  <text x="36" y="138" class="txt"><tspan class="bold">Cache Creation Input (Writes)</tspan>     4,220               21.4%            <tspan class="green">$0.0158</tspan></text>
+  <text x="36" y="158" class="txt"><tspan class="bold">Uncached Input</tspan>                    1,390                7.0%            <tspan class="green">$0.0042</tspan></text>
+  <text x="36" y="178" class="txt"><tspan class="bold">Output Generation</tspan>                   660                3.3%            <tspan class="green">$0.0099</tspan></text>
+  <line x1="28" y1="188" x2="892" y2="188" class="rule"/>
+  <text x="36" y="208" class="txt"><tspan class="white">Total                            19,720              100.0%</tspan>            <tspan class="bgreen">$0.0326</tspan></text>
+
+  <!-- Section 2: Per-Turn Token Flame Chart -->
+  <text x="460" y="248" text-anchor="middle" class="txt"><tspan class="bcyan">2. Per-Turn Token Flame Chart</tspan>   <tspan class="green">█ Cache Read</tspan>   <tspan class="yellow">▓ Cache Write</tspan>   <tspan class="cyan">▒ Input</tspan>   <tspan class="magenta">░ Output</tspan></text>
+  <text x="36" y="274" class="txt bcyan">Turn   Token Distribution                  Total     Out    Cache%      Cost    Tools Called</text>
+  <line x1="28" y1="282" x2="892" y2="282" class="rule"/>
+
+  <text x="36" y="302" class="txt">  <tspan class="white">#2</tspan>   <tspan class="yellow">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</tspan><tspan class="cyan">▒▒▒</tspan><tspan class="magenta">░</tspan>        4.4k     145        <tspan class="green">0%</tspan>   <tspan class="green">$0.0177</tspan>    <tspan class="yellow">Read</tspan></text>
+  <text x="36" y="322" class="txt">  <tspan class="white">#3</tspan>   <tspan class="green">██████████████████████████</tspan><tspan class="yellow">▓</tspan><tspan class="cyan">▒▒</tspan><tspan class="magenta">░░</tspan>      4.5k     260       <tspan class="green">89%</tspan>   <tspan class="green">$0.0067</tspan>    <tspan class="yellow">Edit, Task</tspan></text>
+  <text x="36" y="342" class="txt">  <tspan class="white">#4</tspan>   <tspan class="green">████████</tspan><tspan class="cyan">▒</tspan><tspan class="magenta">░</tspan>                           1.4k      55       <tspan class="green">86%</tspan>   <tspan class="green">$0.0005</tspan>    <tspan class="yellow">Grep</tspan></text>
+  <text x="36" y="362" class="txt">  <tspan class="white">#5</tspan>   <tspan class="green">████████████████████████████</tspan><tspan class="yellow">▓</tspan><tspan class="cyan">▒▒</tspan><tspan class="magenta">░</tspan>     4.6k      90       <tspan class="green">91%</tspan>   <tspan class="green">$0.0040</tspan>    <tspan class="yellow">Bash</tspan></text>
+  <text x="36" y="382" class="txt">  <tspan class="white">#6</tspan>   <tspan class="green">█████████████████████████████</tspan><tspan class="yellow">▓</tspan><tspan class="cyan">▒</tspan><tspan class="magenta">░</tspan>     4.7k     110       <tspan class="green">94%</tspan>   <tspan class="green">$0.0039</tspan>    <tspan class="yellow">-</tspan></text>
+
+  <!-- Section 3: Tool Execution & Latency Leaderboard -->
+  <text x="460" y="422" text-anchor="middle" class="txt bcyan">3. Tool Execution &amp; Latency Leaderboard</text>
+  <text x="36" y="448" class="txt bcyan">Tool Name      Calls     Errors     Avg Latency     Max Latency     Total Time</text>
+  <line x1="28" y1="456" x2="892" y2="456" class="rule"/>
+  <text x="36" y="476" class="txt"><tspan class="byellow">Task</tspan>               1          <tspan class="dim">0</tspan>            1.4s            1.4s           <tspan class="cyan">1.4s</tspan></text>
+  <text x="36" y="496" class="txt"><tspan class="byellow">Bash</tspan>               1          <tspan class="dim">0</tspan>            1.2s            1.2s           <tspan class="cyan">1.2s</tspan></text>
+  <text x="36" y="516" class="txt"><tspan class="byellow">Read</tspan>               1          <tspan class="dim">0</tspan>           180ms           180ms          <tspan class="cyan">180ms</tspan></text>
+  <text x="36" y="536" class="txt"><tspan class="byellow">Edit</tspan>               1          <tspan class="dim">0</tspan>           140ms           140ms          <tspan class="cyan">140ms</tspan></text>
+</svg>
