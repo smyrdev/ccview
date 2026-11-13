@@ -3,14 +3,20 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "claude-jsonl-viewer"
+name = "ccview"
 version = "0.1.0"
 description = "Simple, fast terminal & forensic CLI viewer for Claude Code .jsonl session logs"
 readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "MIT" }
 dependencies = [
     "rich>=13.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/smyrdev/ccview"
+Repository = "https://github.com/smyrdev/ccview"
+Issues = "https://github.com/smyrdev/ccview/issues"
 
 [project.scripts]
 ccview = "jsonl_viewer.cli:main"
